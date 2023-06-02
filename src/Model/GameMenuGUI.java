@@ -1,9 +1,5 @@
-package Model;
-
+package GameDisplay;
 import javax.swing.*;
-
-import GameDisplay.GameFrame;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,10 +10,11 @@ public class GameMenuGUI extends JFrame {
     private JButton exitButton;
 
     public GameMenuGUI() {
-		ImageIcon title = new ImageIcon("bomb.png");
+    	String path = "/Bomb With Timer.png";
+		ImageIcon title = new ImageIcon(getClass().getResource(path));
 		
 		setIconImage(title.getImage());
-		setTitle("Minesweeper");	
+		setTitle("Minesweeper");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 200);
         setLocationRelativeTo(null);
@@ -31,6 +28,16 @@ public class GameMenuGUI extends JFrame {
 
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	new GameFrame(16,16,40).setVisible(true);;    
+                setVisible(false);
+            }
+        });
+
+        optionsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Add code to open the options menu here
+               
+
             	String[] options = { "Beginner","Easy", "Medium", "Hard","Expert" };
                 int selectedOption = JOptionPane.showOptionDialog(null, "Select Difficulty", "Options", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
                
@@ -58,15 +65,6 @@ public class GameMenuGUI extends JFrame {
                 default:
                     break;
         }
-            }
-        });
-
-        optionsButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Add code to open the options menu here
-               
-
-                // Perform action based on the selected option
                 
         }});
 
