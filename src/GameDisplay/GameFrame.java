@@ -9,6 +9,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import Model.GameMenuGUI;
 import Model.LoadData;
 
 public class GameFrame extends JFrame {
@@ -100,7 +101,7 @@ public class GameFrame extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new GameFrame(8, 8, 10);
+		new GameMenuGUI();
 	}
 
 	public LoadData getLoadData() {
