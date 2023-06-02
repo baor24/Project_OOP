@@ -1,22 +1,25 @@
 package GameDisplay;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import GameControl.World;
+import Model.GameMenuGUI;
 
 public class GamePanel extends JPanel implements MouseListener {
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private PanelNotification p1;
 	private PanelPlayer p2;
+	private JButton menuButton;
 
 	private GameFrame gameFrame;
 
@@ -39,6 +42,18 @@ public class GamePanel extends JPanel implements MouseListener {
 		setLayout(new BorderLayout(20, 20));
 
 		add(p1 = new PanelNotification(this), BorderLayout.NORTH);
+		p1.add(menuButton = new JButton("Menu"), BorderLayout.SOUTH);
+		menuButton.setPreferredSize(new Dimension(35, 35));
+		menuButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				gameFrame.setVisible(false);
+				new GameMenuGUI().setVisible(true);
+			}
+		});
+		
 		add(p2 = new PanelPlayer(this), BorderLayout.CENTER);
 	}
 
