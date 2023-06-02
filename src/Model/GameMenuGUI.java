@@ -1,5 +1,8 @@
-package GameDisplay;
+package Model;
 import javax.swing.*;
+
+import GameDisplay.GameFrame;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +14,7 @@ public class GameMenuGUI extends JFrame {
 
     public GameMenuGUI() {
     	String path = "/Bomb With Timer.png";
-		ImageIcon title = new ImageIcon(getClass().getResource(path));
+		ImageIcon title = new ImageIcon("bomb.png");
 		
 		setIconImage(title.getImage());
 		setTitle("Minesweeper");
