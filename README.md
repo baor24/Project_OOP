@@ -31,3 +31,4 @@ Right-click: Flag/unflag a cell as a potential mine.
 
 - Multiple Difficulty Levels: The game offers different difficulty levels, such as Beginner, Intermediate, and Expert, with varying grid sizes and mine counts.
 - Timer and Score Tracking: The game tracks the player's time to complete the game and maintains a high-score leaderboard.
+- Sound and Visual Effects: The game provides pleasant sound and a classic visual effects to enhance the gaming experience.
