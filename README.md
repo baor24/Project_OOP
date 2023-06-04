@@ -17,8 +17,8 @@ Trinh Chien Thang
 To run the Minesweeper game on your local machine, follow these instructions:
 
     1. Clone the repository or download the source code as a ZIP file.
-    3. Open the project.
-    3. Run the main game file.
+    3. Open the application folder.
+    3. Run the MineSweeper.exe file.
 
 ## Game Controls
 The game controls are as follows:
