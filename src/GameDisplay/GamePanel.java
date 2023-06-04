@@ -123,7 +123,7 @@ public class GamePanel extends JPanel implements MouseListener {
 						}
 					}
 				} else if (e.getButton() == 3 && e.getSource() == arrayButton[i][j]) {
-					world.camCo(i, j);
+					world.flagged(i, j);
 				}
 			}
 		}

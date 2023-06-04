@@ -37,9 +37,7 @@ public class GameMenuGUI extends JFrame {
 
         optionsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Add code to open the options menu here
                
-
             	String[] options = { "Beginner","Easy", "Medium", "Hard","Expert" };
                 int selectedOption = JOptionPane.showOptionDialog(null, "Select Difficulty", "Options", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
                
