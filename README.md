@@ -13,7 +13,7 @@ Trinh Chien Thang
 
 
 ## Installation
-Remember to install JRE, you can find more information here: https://docs.oracle.com/goldengate/1212/gg-winux/GDRAD/java.htm
+Remember to install JRE (Version 1.8.0), you can find more information here: https://docs.oracle.com/goldengate/1212/gg-winux/GDRAD/java.htm
 \
 To run the Minesweeper game on your local machine, follow these instructions:
 
