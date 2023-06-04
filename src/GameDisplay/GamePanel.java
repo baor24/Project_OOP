@@ -6,13 +6,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import GameControl.World;
 import Model.GameMenuGUI;
+import Model.Sound;
 
 public class GamePanel extends JPanel implements MouseListener {
 	
@@ -81,7 +85,14 @@ public class GamePanel extends JPanel implements MouseListener {
 							getP1().getTime().stop();
 							getP1().getBt().setStage(ButtonSmile.lose);
 							getP1().getBt().repaint();
-
+							
+							try {
+								new Sound().playExplodeSound();
+							} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							
 							int option = JOptionPane.showConfirmDialog(this, "You lost, play again?", "Notification",
 									JOptionPane.YES_NO_OPTION);
 							if (option == JOptionPane.YES_OPTION) {
@@ -95,6 +106,13 @@ public class GamePanel extends JPanel implements MouseListener {
 							getP1().getTime().stop();
 							getP1().getBt().setStage(ButtonSmile.win);
 							getP1().getBt().repaint();
+							
+							try {
+								new Sound().playWinningSound();
+							} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 
 							int option = JOptionPane.showConfirmDialog(this, "You win, play again ?", "Notification",
 									JOptionPane.YES_NO_OPTION);
@@ -105,7 +123,7 @@ public class GamePanel extends JPanel implements MouseListener {
 						}
 					}
 				} else if (e.getButton() == 3 && e.getSource() == arrayButton[i][j]) {
-					world.flagged(i, j);
+					world.camCo(i, j);
 				}
 			}
 		}
