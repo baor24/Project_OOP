@@ -27,8 +27,8 @@ The game controls are as follows:
 Left-click: Uncover a cell.\
 Right-click: Flag/unflag a cell as a potential mine.
 
-## Features
+## Main Features
 
 - Multiple Difficulty Levels: The game offers different difficulty levels, such as Beginner, Intermediate, and Expert, with varying grid sizes and mine counts.
-- Timer and Score Tracking: The game tracks the player's time to complete the game and maintains a high-score leaderboard.
+- Timer Tracking: The game tracks the player's time to complete the game.
 - Sound and Visual Effects: The game provides pleasant sound and a classic visual effects to enhance the gaming experience.
