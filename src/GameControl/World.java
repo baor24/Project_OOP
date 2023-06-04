@@ -15,9 +15,8 @@ public class World {
 	private int[][] arrayMin;
 
 	private boolean[][] arrayBoolean;
-
-	private boolean[][] arrayCamCo;
-	private int co;
+	private boolean[][] arrayFlag;
+	private int Flag;
 
 	private boolean isComplete;
 	private boolean isEnd;
@@ -37,77 +36,34 @@ public class World {
 		arrayButton = new ButtonPlay[w][h];
 		arrayMin = new int[w][h];
 		arrayBoolean = new boolean[w][h];
-		arrayCamCo = new boolean[w][h];
+		arrayFlag = new boolean[w][h];
 
 		rd = new Random();
 
 		createArrayMin(boom, w, h);
-		dienSo();
+		FillintheArray();
 		
-		System.out.println("number of bombs "+ boom);
-		
-		for (int i=0;i<arrayButton.length;i++) {
-			for (int j=0; j<arrayButton[i].length;j++) {
-				System.out.print(arrayMin[i][j]+" ");
-			}
-			System.out.println();
-		}
-
+//		System.out.println("number of bombs "+ boom);
+//		
+//		for (int i=0;i<arrayButton.length;i++) {
+//			for (int j=0; j<arrayButton[i].length;j++) {
+//				System.out.print(arrayMin[i][j]+" ");
+//			}
+//			System.out.println();
+//		}
 	}
 
-	public boolean clickDouble(int i, int j) {
-
-		boolean isCoMin = false;
-
-		for (int l = i - 1; l <= i + 1; l++) {
-			for (int k = j - 1; k <= j + 1; k++) {
-				if (l >= 0 && l <= arrayMin.length - 1 && k >= 0 && k <= arrayMin[i].length - 1) {
-					if (!arrayCamCo[l][k]) {
-						if (arrayMin[l][k] == -1) {
-							isCoMin = true;
-							arrayButton[l][k].setNumber(12);
-							arrayButton[l][k].repaint();
-							arrayBoolean[l][k] = true;
-						} else if (!arrayBoolean[l][k]) {
-							if (arrayMin[l][k] == 0) {
-								open(l, k);
-							} else {
-								arrayButton[l][k].setNumber(arrayMin[l][k]);
-								arrayButton[l][k].repaint();
-								arrayBoolean[l][k] = true;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		if (isCoMin) {
-			for (int j2 = 0; j2 < arrayBoolean.length; j2++) {
-				for (int k = 0; k < arrayBoolean[i].length; k++) {
-					if (arrayMin[j2][k] == -1 && !arrayBoolean[j2][k]) {
-						arrayButton[j2][k].setNumber(10);
-						arrayButton[j2][k].repaint();
-					}
-				}
-			}
-			return false;
-		}
-
-		return true;
-	}
-
-	public void camCo(int i, int j) {
+	public void flagged(int i, int j) {
 		if (!arrayBoolean[i][j]) {
-			if (arrayCamCo[i][j]) {
-				co--;
-				arrayCamCo[i][j] = false;
+			if (arrayFlag[i][j]) {
+				Flag--;
+				arrayFlag[i][j] = false;
 				arrayButton[i][j].setNumber(-1);
 				arrayButton[i][j].repaint();
 				game.getP1().updateLbBoom();
-			} else if (co < boom) {
-				co++;
-				arrayCamCo[i][j] = true;
+			} else if (Flag < boom) {
+				Flag++;
+				arrayFlag[i][j] = true;
 				arrayButton[i][j].setNumber(9);
 				arrayButton[i][j].repaint();
 				game.getP1().updateLbBoom();
@@ -135,7 +91,7 @@ public class World {
 					for (int l = i - 1; l <= i + 1; l++) {
 						for (int k = j - 1; k <= j + 1; k++) {
 							if (l >= 0 && l <= arrayMin.length - 1 && k >= 0 && k <= arrayMin[i].length - 1) {
-								if (!arrayBoolean[l][k] && !arrayCamCo[l][k]) { // open unflagged squares
+								if (!arrayBoolean[l][k] && !arrayFlag[l][k]) { // open unflagged squares
 									open(l, k);
 								}
 							}
@@ -218,7 +174,7 @@ public class World {
 			return false;
 	}
 
-	public void dienSo() {
+	public void FillintheArray() {
 		for (int i = 0; i < arrayMin.length; i++) {
 			for (int j = 0; j < arrayMin[i].length; j++) {
 				if (arrayMin[i][j] == 0) {
@@ -329,19 +285,19 @@ public class World {
 	}
 
 	public boolean[][] getArrayCamCo() {
-		return arrayCamCo;
+		return arrayFlag;
 	}
 
-	public void setArrayCamCo(boolean[][] arrayCamCo) {
-		this.arrayCamCo = arrayCamCo;
+	public void setArrayFlag(boolean[][] arrayCamCo) {
+		this.arrayFlag = arrayCamCo;
 	}
 
-	public int getCo() {
-		return co;
+	public int getFlag() {
+		return Flag;
 	}
 
-	public void setCo(int co) {
-		this.co = co;
+	public void setFlag(int Flag) {
+		this.Flag = Flag;
 	}
 
 }

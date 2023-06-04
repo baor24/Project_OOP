@@ -7,9 +7,6 @@ import javax.swing.JButton;
 
 public class ButtonSmile extends JButton {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	public static final int win = 0;
 	public static final int lose = 1;
@@ -24,7 +21,6 @@ public class ButtonSmile extends JButton {
 	public ButtonSmile(PanelNotification p) {
 		this.p = p;
 		setPreferredSize(new Dimension(50, 50));
-
 		stage = now;
 	}
 

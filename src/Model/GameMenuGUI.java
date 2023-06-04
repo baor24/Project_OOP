@@ -13,8 +13,7 @@ public class GameMenuGUI extends JFrame {
     private JButton exitButton;
 
     public GameMenuGUI() {
-    	String path = "/Bomb With Timer.png";
-		ImageIcon title = new ImageIcon("bomb.png");
+		ImageIcon title = new ImageIcon(getClass().getResource("/images/bomb.png"));
 		
 		setIconImage(title.getImage());
 		setTitle("Minesweeper");
