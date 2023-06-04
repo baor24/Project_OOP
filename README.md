@@ -6,7 +6,7 @@
 This is a Minesweeper game project of Group 8 for COMP1020 - Object Oriented Programming. The game is created using Java. This is a classic puzzle game where the player needs to uncover cells on a grid without hitting any mines. The objective is to uncover all non-mine cells and mark all the mines correctly.
 
 ## Members
-Truong Gia Bao - Leader\
+Truong Gia Bao\
 Le Nguyen Gia Binh\
 Cao Lam Huy\
 Trinh Chien Thang
