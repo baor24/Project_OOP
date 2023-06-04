@@ -43,6 +43,15 @@ public class World {
 
 		createArrayMin(boom, w, h);
 		dienSo();
+		
+		System.out.println("number of bombs "+ boom);
+		
+		for (int i=0;i<arrayButton.length;i++) {
+			for (int j=0; j<arrayButton[i].length;j++) {
+				System.out.print(arrayMin[i][j]+" ");
+			}
+			System.out.println();
+		}
 
 	}
 
@@ -126,7 +135,7 @@ public class World {
 					for (int l = i - 1; l <= i + 1; l++) {
 						for (int k = j - 1; k <= j + 1; k++) {
 							if (l >= 0 && l <= arrayMin.length - 1 && k >= 0 && k <= arrayMin[i].length - 1) {
-								if (!arrayBoolean[l][k]) {
+								if (!arrayBoolean[l][k] && !arrayCamCo[l][k]) { // open unflagged squares
 									open(l, k);
 								}
 							}
